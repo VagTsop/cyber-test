@@ -19,13 +19,12 @@
 </div>
 <div class="cont">
   <div class="login-container">
-    <form [formGroup]="signupForm">
+    <form [formGroup]="signupForm" (ngSubmit)="onLogin()">
       <div class="group">
         <label>Email</label>
         <input 
-          type="email"
+          type="text"
           formControlName="email"
-          maxlength="49"
           class="input" />
       </div>
 
@@ -34,12 +33,11 @@
         <input
           type="password"
           formControlName="password"
-          maxlength="49" 
           class="input" />
       </div>
 
       <div class="group button-container">
-        <button class="btn btn-primary" (click)="onLogin()">Login</button>
+        <button class="btn btn-primary" >Login</button>
       </div>
     </form>
   </div>
