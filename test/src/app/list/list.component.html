@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="p-2 col-md-12">
+      <div class="instructions">
+        <span>{{instructions.tips}}</span>
+        <div class="tasks">
+          <span>{{instructions.t1}}</span>
+          <br>
+          <span>{{instructions.t2}}</span>
+          <br>
+          <span>{{instructions.t3}}</span>
+          <ul>
+            <li *ngFor="let column of instructions.t3_c">{{column}}</li>
+          </ul>
+          <span>{{instructions.t4}}</span>
+          <br>
+          <span>{{instructions.t5}}</span>
+          <br>
+          <span>{{instructions.t6}}</span>
+          <br>
+          <span>{{instructions.t7}}</span>
+        </div>
+        <div class="extras">
+          <span>{{instructions.extra}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
