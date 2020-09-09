@@ -26,6 +26,9 @@
           type="text"
           formControlName="email"
           class="input" />
+          <span 
+            *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched "
+            class="help-block">Please enter a valid email!</span>
       </div>
 
       <div class="group">
@@ -33,11 +36,18 @@
         <input
           type="password"
           formControlName="password"
-          class="input" />
+          class="input"/>
+          <span
+          *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"
+          class="help-block">Please enter a valid password!</span>
+          
       </div>
 
       <div class="group button-container">
-        <button class="btn btn-primary" >Login</button>
+        <span
+        *ngIf="!signupForm.valid && signupForm.touched"
+        class="help-block">Please enter valid data!</span>
+        <button class="btn btn-primary" [disabled]="!signupForm.valid" >Login</button>
       </div>
     </form>
   </div>
