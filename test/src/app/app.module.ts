@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { BasicAuthInterceptor } from './helpers/basic-auth.interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 
 
 
@@ -30,6 +31,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     { provide: HTTP_INTERCEPTORS,
       useClass: BasicAuthInterceptor,
       multi: true 
+    },
+    { provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
     },
   ],
   bootstrap: [AppComponent]
