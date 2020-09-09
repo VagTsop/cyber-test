@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { of, Observable, throwError } from 'rxjs';
 import { HttpResponse, HttpRequest, HttpHandler, HttpEvent, HTTP_INTERCEPTORS, HttpInterceptor } from '@angular/common/http';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import { User } from '../models/user';
 
 const users: User[] = [{ id: 1, email: 'test@gmail.com', password: 'test' }];
 
