@@ -26,8 +26,8 @@
           type="text"
           formControlName="email"
           class="input" />
-          <span
-            *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
+          <span 
+            *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched "
             class="help-block">Please enter a valid email!</span>
       </div>
 
@@ -47,7 +47,7 @@
         <span
         *ngIf="!signupForm.valid && signupForm.touched"
         class="help-block">Please enter valid data!</span>
-        <button class="btn btn-primary" >Login</button>
+        <button class="btn btn-primary" [disabled]="!signupForm.valid" >Login</button>
       </div>
     </form>
   </div>

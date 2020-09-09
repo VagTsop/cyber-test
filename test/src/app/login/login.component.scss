@@ -29,3 +29,11 @@
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+button:not(disabled){
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
