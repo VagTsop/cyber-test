@@ -8,9 +8,8 @@ export class NoEmptyInputValidator {
         if ((control.value != null) && (control.value.trim().length === 0)) {
 
             // invalid, return error object
-            return { 'notOnlyWhitespace': true };
-        }
-        else {
+            return { notOnlyWhitespace: true };
+        } else {
             // valid, return null
             return null;
         }
