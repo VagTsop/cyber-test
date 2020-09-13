@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
 
 
@@ -8,9 +8,10 @@ import { Router } from '@angular/router';
    styleUrls: ['./header.component.scss']
 }) 
 
-export class HeaderComponent {
+export class HeaderComponent  {
 
-    constructor(private router: Router) {
+
+    constructor(public router: Router) {
 
     }
 
@@ -19,3 +20,4 @@ export class HeaderComponent {
     }
 
     }
+    
