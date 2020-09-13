@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { HttpClientModule } from '@angular/common/http';
+import { BooksService } from './list/books.service';
 
 
 @NgModule({
@@ -24,9 +25,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [BooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
