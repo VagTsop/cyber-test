@@ -3,6 +3,9 @@ import instructions from '../../assets/config/instructions.js';
 import { BooksService } from './books.service.js';
 import { ActivatedRoute } from '@angular/router';
 
+
+
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -10,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   providers: [BooksService],
 })
 export class ListComponent implements OnInit {
+
   booksList: string [] ;
   instructions = instructions.list;
 
@@ -23,5 +27,5 @@ export class ListComponent implements OnInit {
        });
     }
 
-    
+
 }
