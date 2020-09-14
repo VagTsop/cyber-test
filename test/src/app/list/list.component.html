@@ -45,7 +45,7 @@
 			<td>{{ bookList.code }}</td>
 			<td>{{ bookList.title }}</td>
 			<td>{{ bookList.author }}</td>
-      <td>{{ bookList.published }}</td>
+      <td>{{ bookList.published | date:"dd/MM/yyyy" }}</td>
       <td>{{ bookList.pages }}</td>
       <td>{{ bookList.website }}</td>
 		</tr>
