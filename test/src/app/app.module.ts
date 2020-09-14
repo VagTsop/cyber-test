@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksService } from './list/books.service';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -34,11 +35,7 @@ import { BooksService } from './list/books.service';
     FontAwesomeModule,
     HttpClientModule
   ],
-
-  providers: [BooksService],
-
-
-
+  providers: [BooksService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
