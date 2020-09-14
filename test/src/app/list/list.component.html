@@ -26,9 +26,34 @@
       </div>
     </div>
   </div>
+
+
+<table class="table table-hover">
+	<thead class="thead-dark">
+		<tr>
+			<th id="align-center">Code</th>
+			<th id="align-left">Title</th>
+			<th id="align-left">Author</th>
+      <th id="align-center">Published</th>
+      <th id="align-center">Pages</th>
+      <th id="align-center">Website</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let bookList of booksList">
+			<td>{{ bookList.code }}</td>
+			<td>{{ bookList.title }}</td>
+			<td>{{ bookList.author }}</td>
+      <td>{{ bookList.published }}</td>
+      <td>{{ bookList.pages }}</td>
+      <td>{{ bookList.website }}</td>
+		</tr>
+	</tbody>
+</table>
 </div>
-<div class="container">
- <div *ngFor="let bookList of booksList">
-  <p>{{bookList.code}}</p>
-  </div>
+ <!-- <div *ngFor="let bookList of booksList">
 </div>
+</div> -->
+
+
