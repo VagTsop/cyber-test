@@ -16,7 +16,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'list',
+    path: 'list', 
     component: ListComponent
   }
 ];

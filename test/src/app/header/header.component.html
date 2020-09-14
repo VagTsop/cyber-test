@@ -1,0 +1,13 @@
+<!--parent = flex-container-->
+<div  class="container" *ngIf="router.url !== '/login' ">
+    
+    <!-- children = flex-items -->
+    <div class="box box-1">Bookstore</div>
+    <div class="box box-2">
+        <button  
+        (click)="onLogout()"> <i class="fas fa-sign-out-alt"></i>
+        </button>
+    </div>
+
+
+</div>

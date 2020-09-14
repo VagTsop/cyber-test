@@ -7,9 +7,13 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
-import { BasicAuthInterceptor } from './helpers/basic-auth.interceptor.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ErrorInterceptor } from './helpers/error.interceptor';
+
+import { HeaderComponent } from './header/header.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
+import { BooksService } from './list/books.service';
+
+
 
 
 
@@ -21,22 +25,20 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     LoginComponent,
     HomeComponent,
     ListComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS,
-      useClass: BasicAuthInterceptor,
-      multi: true 
-    },
-    { provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true
-    },
-  ],
+
+  providers: [BooksService],
+
+
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,30 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import instructions from '../../assets/config/instructions.js';
-import { User } from '../models/user.js';
-import { UserService } from '../services/user.service.js';
-import { first } from 'rxjs/operators';
+import { BooksService } from './books.service.js';
+import { ActivatedRoute } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+  providers: [BooksService],
 })
 export class ListComponent implements OnInit {
-  loading = false;
-  users: User[];
+
+  booksList: string [] ;
   instructions = instructions.list;
+
+  constructor( private route: ActivatedRoute,
+    private booksService: BooksService) { }
+
+    ngOnInit(){
+      this.booksService.getJSON().subscribe(data => {
+
+        this.booksList = data.books;
+      //  console.log(this.booksList[0])
+       });
+    }
+
   
-  constructor(private userService: UserService) { }
 
-
-  
- 
-
-  ngOnInit() {
-    this.loading = true;
-    this.userService.getAll().pipe(first()).subscribe(users => {
-        this.loading = false;
-        this.users = users;
-      });
-  }
 }
