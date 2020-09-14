@@ -22,12 +22,10 @@ export class ListComponent implements OnInit {
 
     ngOnInit(){
       this.booksService.getJSON().subscribe(data => {
-
         this.booksList = data.books;
       //  console.log(this.booksList[0])
        });
     }
 
-  
 
 }
