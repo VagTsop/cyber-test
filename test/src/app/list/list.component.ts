@@ -13,12 +13,14 @@ export class ListComponent implements OnInit {
   booksList: string [] ;
   instructions = instructions.list;
 
-  constructor( private route: ActivatedRoute, 
+  constructor( private route: ActivatedRoute,
     private booksService: BooksService) { }
 
     ngOnInit(){
       this.booksService.getJSON().subscribe(data => {
-           console.log(data);
+
+        this.booksList = data.books;
+      //  console.log(this.booksList[0])
        });
     }
 }
