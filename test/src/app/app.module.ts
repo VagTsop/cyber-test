@@ -12,11 +12,8 @@ import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksService } from './list/books.service';
-
-
-
-
-
+import { DatePipe } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -32,13 +29,11 @@ import { BooksService } from './list/books.service';
     AppRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
+
   ],
-
-  providers: [BooksService],
-
-
-
+  providers: [BooksService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
