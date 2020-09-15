@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BooksService } from './list/books.service';
 import { DatePipe } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdModalComponent, NgbdModalContent } from './shared/modal-component';
 
 
 @NgModule({
@@ -23,6 +24,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     ListComponent,
     HeaderComponent,
+    NgbdModalComponent,
+    NgbdModalContent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
 
   ],
+  
   providers: [BooksService, DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    NgbdModalContent
+  ]
 })
 export class AppModule { }
