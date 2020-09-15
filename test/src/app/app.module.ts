@@ -13,11 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksService } from './list/books.service';
 import { DatePipe } from '@angular/common';
-import { TooltipModule, TooltipOptions } from 'ng2-tooltip-directive';
-import { MyDefaultTooltipOptions } from './helpers/tooltip';
-
-
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -34,7 +30,8 @@ import { MyDefaultTooltipOptions } from './helpers/tooltip';
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    TooltipModule.forRoot(MyDefaultTooltipOptions as TooltipOptions)
+    NgbModule
+
   ],
   providers: [BooksService, DatePipe],
   bootstrap: [AppComponent]
