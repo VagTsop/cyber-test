@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class BooksService {
-
    constructor(private http: HttpClient) {
         this.getJSON().subscribe(data => {
         });
@@ -13,4 +12,11 @@ export class BooksService {
     public getJSON(): Observable<any> {
         return this.http.get('./assets/data/book.data.json');
     }
+
+
+
+
+
+
 }
+

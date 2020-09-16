@@ -13,8 +13,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { BooksService } from './list/books.service';
 import { DatePipe } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalComponent, NgbdModalContent } from './shared/modal-component';
+import { FormModalComponent } from './form-modal/form-modal.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { NgbdModalComponent, NgbdModalContent } from './shared/modal-component';
     HeaderComponent,
     NgbdModalComponent,
     NgbdModalContent,
+    FormModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,14 +35,13 @@ import { NgbdModalComponent, NgbdModalContent } from './shared/modal-component';
     ReactiveFormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    NgbModule
-
+    NgbModule,
   ],
-  
-  providers: [BooksService, DatePipe],
+
+  providers: [BooksService, DatePipe, NgbActiveModal],
   bootstrap: [AppComponent],
   entryComponents: [
-    NgbdModalContent
+    NgbdModalContent, FormModalComponent
   ]
 })
 export class AppModule { }

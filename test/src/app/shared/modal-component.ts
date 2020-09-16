@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  // tslint:disable-next-line: component-selector
-  selector: 'ngbd-modal-content',
+  selector: 'app-modal-content',
   template: `
     <div class="modal-header">
       <h4 class="modal-title">Book Details</h4>
@@ -26,14 +25,12 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 // tslint:disable-next-line: component-class-suffix
 export class NgbdModalContent {
-  @Input() name: any;
 
   constructor(public activeModal: NgbActiveModal) {}
 }
 
 @Component({
-  // tslint:disable-next-line: component-selector
-  selector: 'ngbd-modal-component',
+  selector: 'app-modal-component',
   templateUrl: './modal-component.html'
 })
 export class NgbdModalComponent {
@@ -41,6 +38,5 @@ export class NgbdModalComponent {
 
   open() {
     const modalRef = this.modalService.open(NgbdModalContent);
-    modalRef.componentInstance.name = 'World';
   }
 }

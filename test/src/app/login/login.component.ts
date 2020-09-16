@@ -12,33 +12,27 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   instructions = instructions.login;
   signupForm: FormGroup;
-  
+
   constructor(
     private router: Router
     ) {}
 
-    
     ngOnInit() {
-      this.signupForm = new FormGroup({                 
-       'email': new FormControl(null,
+      this.signupForm = new FormGroup({
+       email: new FormControl(null,
                           [Validators.required,
                            Validators.email,
                            Validators.maxLength(49),
                            NoEmptyInputValidator.notOnlyWhitespace]),
-       'password' : new FormControl(null,
+       password : new FormControl(null,
                           [Validators.required,
                            Validators.maxLength(49),
                            NoEmptyInputValidator.notOnlyWhitespace])
       });
      }
 
-  
-  onLogin() { 
+  onLogin() {
     this.router.navigate(['/list']);
     console.log(this.signupForm);
-    
-   
-   
   }
-  
 }

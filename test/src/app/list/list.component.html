@@ -31,7 +31,7 @@
     <div class="box box-1"><h1>Books</h1></div>
        
     <div class="box box-2">
-      <button>
+      <button (click)="openFormModal()">
         <i class="fa fa-plus"></i>
       </button>
     </div>
@@ -50,7 +50,6 @@
     </thead>
 
     <tbody>
-      <ngbd-modal-component></ngbd-modal-component>
       <tr (click)="onClick()" *ngFor="let bookList of booksList">
         <td>{{ bookList.code }}</td>
         <td>{{ bookList.title }}</td>

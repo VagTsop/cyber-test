@@ -5,22 +5,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   title = 'Cyberce Test';
   tips = instructions.main_screen.tips;
 
-  constructor(
-    private router: Router
-  ) {
+  constructor(private router: Router) {}
 
-  }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   beginTest() {
     this.router.navigate(['/login']);
