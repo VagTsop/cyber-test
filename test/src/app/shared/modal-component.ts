@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'ngbd-modal-content',
   template: `
     <div class="modal-header">
@@ -11,20 +12,27 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
       </button>
     </div>
     <div class="modal-body">
-      <p>Hello, {{name}}!</p>
+      <p>Code</p>
+      <p>Title</p>
+      <p>Author</p>
+      <p>published</p>
+      <p>pages</p>
+      <p>Website</p>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
     </div>
   `
 })
+// tslint:disable-next-line: component-class-suffix
 export class NgbdModalContent {
-  @Input() name;
+  @Input() name: any;
 
   constructor(public activeModal: NgbActiveModal) {}
 }
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'ngbd-modal-component',
   templateUrl: './modal-component.html'
 })

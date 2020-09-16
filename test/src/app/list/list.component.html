@@ -41,7 +41,7 @@
 	</thead>
 
 	<tbody><ngbd-modal-component></ngbd-modal-component>
-		<tr *ngFor="let bookList of booksList">
+		<tr (click)="onClick()"  *ngFor="let bookList of booksList">
 			<td>{{ bookList.code }}</td>
 			<td>{{ bookList.title }}</td>
 			<td>{{ bookList.author }}</td>
