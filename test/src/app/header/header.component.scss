@@ -1,9 +1,16 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 .container {
-    border: 5px solid red;
+    border: 5px solid rgba(13, 71, 179, 0.486);
     display: flex;
     flex-wrap: wrap;
     justify-content:space-between;
+    border-style: double;
 }
 
+.fa-sign-out-alt {
+  text-align: center;
+  display: block;
+  margin: 20px;
+  font-size: 30px;;
+}

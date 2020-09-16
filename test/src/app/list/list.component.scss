@@ -1,7 +1,8 @@
 .container  {
- display:flex;
-  border: 5px solid rgb(68, 100, 105);
-  flex-direction: column;
+  border: 5px solid rgba(13, 71, 179, 0.486);
+  display: flex;
+  flex-wrap: wrap;
+  border-style: double;
 }
 #align-center {
   text-align: center;
@@ -14,7 +15,26 @@
   display: block;
   margin: 20px;
 }
+.fa-plus {
+  text-align: center;
+  display: block;
+  font-size: 30px;
+}
 
+h1{
+  text-align: left;
+  position: relative;
+  top: 145px;
+  left: 20px;
+}
+
+.box-2 {
+  text-align: center;
+  margin:0px 0px 100px 1010px;
+  display: block;
+  position: relative;
+  top: 70px;
+}
 
 
 
