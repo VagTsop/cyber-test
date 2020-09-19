@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {  ReactiveFormsModule } from '@angular/forms';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BooksService } from './list/books.service';
 import { DatePipe } from '@angular/common';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdModalComponent, NgbdModalContent } from './shared/modal-component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -26,8 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     ListComponent,
     HeaderComponent,
-    NgbdModalComponent,
-    NgbdModalContent,
+
   ],
   imports: [
     BrowserModule,
@@ -36,13 +34,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FontAwesomeModule,
     HttpClientModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
 
   providers: [BooksService, DatePipe, NgbActiveModal],
   bootstrap: [AppComponent],
-  entryComponents: [
-    NgbdModalContent
-  ]
+  
 })
 export class AppModule { }

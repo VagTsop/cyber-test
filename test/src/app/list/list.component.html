@@ -150,7 +150,7 @@
     </thead>
 
     <tbody>
-      <tr (click)="onClick()" *ngFor="let bookList of booksList">
+      <tr *ngFor="let bookList of booksList">
         <td>{{ bookList.code }}</td>
         <td>{{ bookList.title }}</td>
         <td>{{ bookList.author }}</td>
@@ -163,7 +163,38 @@
         <td>
           <a [attr.href]="bookList.website">{{ bookList.website }}</a>
         </td>
+        <td><button @fadeSlideInOut (click)="editPopUpmodal(bookList)" >Edit</button></td>
+
       </tr>
     </tbody>
   </table>
+<!-- Start Book Details PopUp -->
+<div @fadeSlideInOut *ngIf="showModalPopUp">
+  <div class="modal-header">
+    <h4 class="modal-title">Book Details</h4>
+    <button type="button" class="close" aria-label="Close" @fadeSlideInOut (click)="toggleShowModalPopup()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Code</p>
+    <input type="number" [(ngModel)] = "editData.code" />
+    <p>Title</p>
+    <input type="text" [(ngModel)] = "editData.title" />
+    <p>Author</p>
+    <input type="text" [(ngModel)] = "editData.author" />
+    <p>published</p>
+    <input type="text" [(ngModel)] = "editData.published" />
+    <p>pages</p>
+    <input type="text" [(ngModel)] = "editData.pages" />
+    <p>Website</p>
+    <input type="text" [(ngModel)] = "editData.website" />
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" @fadeSlideInOut (click)="toggleShowModalPopup()">Close</button>
+  </div>
+</div>
+
+<!-- End Book Details PopUp -->
+
 </div>

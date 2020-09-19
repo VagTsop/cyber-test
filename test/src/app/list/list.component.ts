@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import instructions from "../../assets/config/instructions.js";
 import { BooksService } from "./books.service.js";
-import { NgbdModalComponent } from "../shared/modal-component";
 import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NoEmptyInputValidator } from '../custom-validators/no-empty-input-validator.js';
@@ -11,7 +10,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  providers: [BooksService, NgbdModalComponent],
+  providers: [BooksService],
   animations: [
   trigger('fadeSlideInOut', [
     transition(':enter', [
@@ -26,8 +25,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
 
 export class ListComponent implements OnInit {
   instructions = instructions.list;
-  bookPopupForm: FormGroup;
-  isShown: boolean = false ;
+  public bookPopupForm: FormGroup;
+  public isShown: boolean = false ;
   
   public code: number;
   public title: string;
@@ -37,14 +36,14 @@ export class ListComponent implements OnInit {
   public website: string;
   public booksList: Array<{code: number, title: string, author: string, published: string,
                       pages: number, website: string  }> = [];
+  public editData:any = {};
+  public showModalPopUp : boolean = false;
 
 
   constructor(
     private booksService: BooksService,
-    private modalComponent: NgbdModalComponent,
     private modalService: NgbModal,
     public activeModal: NgbActiveModal
-    
   ) {
     this.bookPopupForm = new FormGroup({
       code: new FormControl(null,
@@ -80,9 +79,11 @@ export class ListComponent implements OnInit {
     });
   }
 
-  onClick() {
-    this.modalComponent.open();
+  editPopUpmodal = (bookList) => {
+    this.showModalPopUp = !this.showModalPopUp;
+    this.editData = Object.assign(bookList);
   }
+  
 
   openFormModal() {
     const modalRef = this.modalService.open(this.bookPopupForm);
@@ -104,7 +105,6 @@ export class ListComponent implements OnInit {
     this.booksList.push( {code: this.code, title: this.title, author: this.author,
                           published: this.published, pages: this.pages, website: this.website  } );
 
-    //if you want to clear input
     this.code = null;
     this.title = null;
     this.author = null;
@@ -114,6 +114,12 @@ export class ListComponent implements OnInit {
   }
 
   toggleShow() {
-    this.isShown = ! this.isShown;
+    this.isShown = !this.isShown;
     }
+
+    toggleShowModalPopup() {
+      this.showModalPopUp = !this.showModalPopUp;
+    }
+
+
 }
