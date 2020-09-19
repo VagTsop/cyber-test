@@ -15,6 +15,8 @@ import { BooksService } from './list/books.service';
 import { DatePipe } from '@angular/common';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalComponent, NgbdModalContent } from './shared/modal-component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { NgbdModalComponent, NgbdModalContent } from './shared/modal-component';
     FontAwesomeModule,
     HttpClientModule,
     NgbModule,
+    BrowserAnimationsModule
   ],
 
   providers: [BooksService, DatePipe, NgbActiveModal],

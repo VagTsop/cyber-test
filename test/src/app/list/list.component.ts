@@ -5,13 +5,25 @@ import { NgbdModalComponent } from "../shared/modal-component";
 import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NoEmptyInputValidator } from '../custom-validators/no-empty-input-validator.js';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   providers: [BooksService, NgbdModalComponent],
-})
+  animations: [
+  trigger('fadeSlideInOut', [
+    transition(':enter', [
+      style({ opacity: 0, transform: 'translateY(10px)' }),
+      animate('500ms', style({ opacity: 1, transform: 'translateY(0)' })),
+    ]),
+    transition(':leave', [
+      animate('500ms', style({ opacity: 0, transform: 'translateY(10px)' })),
+     ]),
+   ]),
+  ]})
+
 export class ListComponent implements OnInit {
   instructions = instructions.list;
   bookPopupForm: FormGroup;
