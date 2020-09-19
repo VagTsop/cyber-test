@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import instructions from "../../assets/config/instructions.js";
 import { BooksService } from "./books.service.js";
-import { ActivatedRoute } from "@angular/router";
 import { NgbdModalComponent } from "../shared/modal-component";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { FormModalComponent } from "../form-modal/form-modal.component.js";
+import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NoEmptyInputValidator } from '../custom-validators/no-empty-input-validator.js';
 
 @Component({
   selector: 'app-list',
@@ -15,13 +15,43 @@ import { FormModalComponent } from "../form-modal/form-modal.component.js";
 export class ListComponent implements OnInit {
   booksList: any;
   instructions = instructions.list;
+  bookPopupForm: FormGroup;
+  isShown: boolean = false ;
 
   constructor(
-    private route: ActivatedRoute,
     private booksService: BooksService,
     private modalComponent: NgbdModalComponent,
-    private modalService: NgbModal
-  ) {}
+    private modalService: NgbModal,
+    public activeModal: NgbActiveModal
+    
+  ) {
+    this.bookPopupForm = new FormGroup({
+      code: new FormControl(null,
+                         [Validators.required,
+                          Validators.maxLength(49)
+                         ]),
+      title : new FormControl(null,
+                         [Validators.required,
+                          Validators.maxLength(49),
+                          NoEmptyInputValidator.notOnlyWhitespace]),
+      author : new FormControl(null,
+                         [Validators.required,
+                          Validators.maxLength(49),
+                          NoEmptyInputValidator.notOnlyWhitespace]),
+      published: new FormControl(null,
+                          [Validators.required,
+                           Validators.maxLength(49),
+                           NoEmptyInputValidator.notOnlyWhitespace]),
+      pages : new FormControl(null,
+                          [Validators.required,
+                           Validators.maxLength(49),
+                           NoEmptyInputValidator.notOnlyWhitespace]),
+      website : new FormControl(null,
+                          [Validators.required,
+                          Validators.maxLength(49),
+                          NoEmptyInputValidator.notOnlyWhitespace]),
+     });
+  }
 
   ngOnInit() {
     this.booksService.getJSON().subscribe((data) => {
@@ -34,7 +64,7 @@ export class ListComponent implements OnInit {
   }
 
   openFormModal() {
-    const modalRef = this.modalService.open(FormModalComponent);
+    const modalRef = this.modalService.open(this.bookPopupForm);
 
     modalRef.result
       .then((result) => {
@@ -44,4 +74,18 @@ export class ListComponent implements OnInit {
         console.log(error);
       });
   }
+
+  closeModal() {
+    this.activeModal.close('Modal Closed');
+  }
+
+  onSubmit() {
+
+  }
+
+  toggleShow() {
+
+    this.isShown = ! this.isShown;
+    
+    }
 }

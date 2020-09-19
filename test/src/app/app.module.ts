@@ -15,7 +15,6 @@ import { BooksService } from './list/books.service';
 import { DatePipe } from '@angular/common';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalComponent, NgbdModalContent } from './shared/modal-component';
-import { FormModalComponent } from './form-modal/form-modal.component';
 
 
 @NgModule({
@@ -27,7 +26,6 @@ import { FormModalComponent } from './form-modal/form-modal.component';
     HeaderComponent,
     NgbdModalComponent,
     NgbdModalContent,
-    FormModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +39,7 @@ import { FormModalComponent } from './form-modal/form-modal.component';
   providers: [BooksService, DatePipe, NgbActiveModal],
   bootstrap: [AppComponent],
   entryComponents: [
-    NgbdModalContent, FormModalComponent
+    NgbdModalContent
   ]
 })
 export class AppModule { }
