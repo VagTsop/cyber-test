@@ -52,6 +52,7 @@
   <div class="group">
       <label>Code</label>
       <input
+      [(ngModel)]="code"
         type="number"
         formControlName="code"
         class="form-control" />
@@ -63,6 +64,7 @@
     <div class="group">
       <label>Title</label>
       <input
+      [(ngModel)]="title"
         type="text"
         formControlName="title"
         class="form-control"/>
@@ -74,6 +76,7 @@
     <div class="group">
       <label>Author</label>
       <input
+      [(ngModel)]="author"
         type="text"
         formControlName="author"
         class="form-control"/>
@@ -85,6 +88,7 @@
     <div class="group">
       <label>Published</label>
       <input
+      [(ngModel)]="published"
         type="date"
         formControlName="published"
         class="form-control"/>
@@ -96,6 +100,7 @@
     <div class="group">
       <label>Pages</label>
       <input
+      [(ngModel)]="pages"
         type="text"
         formControlName="pages"
         class="form-control"/>
@@ -107,6 +112,7 @@
     <div class="group">
       <label>Website</label>
       <input
+      [(ngModel)]="website"
         type="text"
         formControlName="website"
         class="form-control"/>
@@ -119,14 +125,14 @@
       <span
       *ngIf="!bookPopupForm.valid && bookPopupForm.touched"
       class="help-block">Please enter valid data!</span>
-      <button class="btn btn-primary" [disabled]="!bookPopupForm.valid" >Login</button>
+      <button class="btn btn-primary" [disabled]="!bookPopupForm.valid" >Save Book</button>
     </div>
 
   </form>
   </div>
   <div class="modal-footer">
-    <button type="button" data-dismiss="modal" >
-      Close Clicked
+    <button type="button" (click)="toggleShow()" >
+      Close Form
     </button>
   </div>
   <!--end of form modal-->

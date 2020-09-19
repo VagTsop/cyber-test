@@ -13,10 +13,19 @@ import { NoEmptyInputValidator } from '../custom-validators/no-empty-input-valid
   providers: [BooksService, NgbdModalComponent],
 })
 export class ListComponent implements OnInit {
-  booksList: any;
   instructions = instructions.list;
   bookPopupForm: FormGroup;
   isShown: boolean = false ;
+  
+  public code: number;
+  public title: string;
+  public author: string;
+  public published: string;
+  public pages: number;
+  public website: string;
+  public booksList: Array<{code: number, title: string, author: string, published: string,
+                      pages: number, website: string  }> = [];
+
 
   constructor(
     private booksService: BooksService,
@@ -80,12 +89,19 @@ export class ListComponent implements OnInit {
   }
 
   onSubmit() {
+    this.booksList.push( {code: this.code, title: this.title, author: this.author,
+                          published: this.published, pages: this.pages, website: this.website  } );
 
+    //if you want to clear input
+    this.code = null;
+    this.title = null;
+    this.author = null;
+    this.published = null;
+    this.pages = null;
+    this.website = null;
   }
 
   toggleShow() {
-
     this.isShown = ! this.isShown;
-    
     }
 }
